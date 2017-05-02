@@ -1,0 +1,72 @@
+<form method="post" name="form" ng-submit="saveUser($event)" id="saveUser" data-url="user/createUser">
+    <div class="card">
+        <div class="card-header bgm-cyan text-center">
+            <h2><i class="him-icon zmdi zmdi-account-add"></i>&nbsp; Registered A New User</h2>
+        </div>
+        <div id="messages"></div>
+        <div class="card-body card-padding">
+            <div class="form-group fg-float m-b-30 col-sm-6">
+                <div class="fg-line" ng-class="{'has-error': form.first_name.$dirty && form.first_name.$invalid }">
+                    <input type="text" class="form-control input-sm" name="first_name" required ng-model="newUserData.first_name">
+                    <label class="fg-label">First Name <span class="text-danger">*</span></label>
+                </div>
+            </div>
+            <div class="form-group fg-float m-b-30 col-sm-6">
+                <div class="fg-line" ng-class="{'has-error': form.last_name.$dirty && form.last_name.$invalid }">
+                    <input type="text" class="form-control input-sm" name="last_name" required ng-model="newUserData.last_name">
+                    <label class="fg-label">Last Name <span class="text-danger">*</span></label>
+                </div>
+            </div>
+
+            <div class="form-group fg-float m-b-30 col-sm-12">
+                <div class="fg-line" ng-class="{'has-error': form.email.$dirty && form.email.$invalid }">
+                    <input type="email" class="form-control input-sm" name="email" required ng-model="newUserData.email">
+                    <label class="fg-label">Email address <span class="text-danger">*</span></label>
+                </div>
+            </div>
+            <div class="form-group fg-float m-b-30 col-sm-6">
+                <div class="fg-line" ng-class="{'has-error': form.password.$dirty && form.password.$invalid }">
+                    <input type="password" class="form-control input-sm" name="password" required ng-model="newUserData.password">
+                    <label class="fg-label">Password <span class="text-danger">*</span></label>
+                </div>
+            </div>
+            <div class="form-group fg-float m-b-30 col-sm-6">
+                <div class="fg-line" ng-class="{'has-error': form.cell_phone.$dirty && form.cell_phone.$invalid }">
+                    <input type="text" class="form-control input-sm" name="cell_phone" required ng-model="newUserData.cell_phone">
+                    <label class="fg-label">Contact Number <span class="text-danger">*</span></label>
+                </div>
+            </div>
+            <!-- User Role section -->
+            <div class="col-sm-6 m-b-30 fg-float form-group">
+                <div class="fg-toggled" >
+                    <select class="selectpicker" data-live-search="true" selectpicker name="role_id" ng-model="newUserData.role_id">
+                        <option ng-repeat="role in roles" value="<% role.id %>"><% role.name %></option>
+                    </select>
+                    <label class="fg-label" style="padding-left: 15px;">User Role <span class="text-danger">*</span></label>
+                </div>
+            </div>
+            <!-- End User Role section -->
+            <div class="form-group fg-float m-b-30 col-sm-6">
+                <div class="fg-line" ng-class="{'has-error': form.city.$dirty && form.city.$invalid }">
+                    <input type="text" class="form-control input-sm" name="city" required ng-model="newUserData.city">
+                    <label class="fg-label">City <span class="text-danger">*</span></label>
+                </div>
+            </div>
+            <div class="form-group fg-float col-sm-12">
+                <div class="fg-line" ng-class="{'has-error': form.address.$dirty && form.address.$invalid }">
+                    <textarea class="form-control auto-size input-sm" style="overflow: hidden; word-wrap: break-word; height: 43px;" name="address" required ng-model="newUserData.address"></textarea>
+                    <label class="fg-label">Address <span class="text-danger">*</span></label>
+                </div>
+            </div>
+            <!-- end address section -->
+            <div class="col-sm-12  m-b-30">
+                <button class="btn btn-info waves-effect"
+                ng-disabled="form.$invalid">
+                    Submit
+                </button>
+                <button class="btn btn-link waves-effect" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>

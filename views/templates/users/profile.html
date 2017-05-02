@@ -1,0 +1,102 @@
+<div class="container container-alt">
+        <div class="card" id="profile-main">
+            <div class="pm-overview c-overflow">
+                <div class="pmo-pic">
+                    <div class="p-relative">
+                        <a href="#/user-profile">
+                            <img class="img-responsive" src="<% JS_Base_Path+'dashboard/uploads/profile-pictures/users/'+user_info.id+'/'+user_info.profile_image %>"
+                                 alt="" onerror="this.src= JS_Base_Path+'dashboard/uploads/profile-pictures/users/default/2.jpg'">
+                        </a>
+                        <div class="dropdown pmop-message">
+                            <a data-toggle="dropdown" href="profile-about.html" class="btn bgm-white btn-float z-depth-1">
+                                <i class="zmdi zmdi-comment-text-alt"></i>
+                            </a>
+                        </div>
+                        <a href="javascript:void(0);" class="pmop-edit" onclick="document.getElementById('profile-pic').click()">
+                            <i class="zmdi zmdi-camera"></i> <span
+                                class="hidden-xs">Update Profile Picture</span>
+                            <input type="file" class="hide"
+                                   id="profile-pic" file-model="updateProfilePic" >
+                        </a>
+                    </div>
+                    <div class="pmo-stat">
+                        <h2 class="m-0 c-white"><% first_name+' '+last_name %></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="pm-body clearfix">
+                <div class="pmb-block">
+                    <div class="pmbb-header">
+                        <h2><i class="zmdi zmdi-account m-r-10"></i> Basic Information</h2>
+                        <ul class="actions">
+                            <li class="dropdown">
+                                <a href="#/user-profile" data-toggle="dropdown">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a data-ma-action="profile-edit" href="#/user-profile">Edit</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pmbb-body p-l-30">
+                        <div class="pmbb-view">
+                            <dl class="dl-horizontal">
+                                <dt>First Name</dt>
+                                <dd><% first_name %></dd>
+                            </dl>
+                            <dl class="dl-horizontal">
+                                <dt>Last Name</dt>
+                                <dd><% last_name %></dd>
+                            </dl>
+                        </div>
+                        <div class="pmbb-edit">
+                            <dl class="dl-horizontal">
+                                <dt class="p-t-10">First Name</dt>
+                                <dd>
+                                    <div class="fg-line">
+                                        <input type="text" class="form-control" ng-model="user_data.first_name">
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="dl-horizontal">
+                                <dt class="p-t-10">Last Name</dt>
+                                <dd>
+                                    <div class="dtp-container dropdown fg-line">
+                                        <input type='text' class="form-control" ng-model="user_data.last_name">
+                                    </div>
+                                </dd>
+                            </dl>
+                            <div class="m-t-30">
+                                <button class="btn btn-primary btn-sm" ng-click="updateBasicInfo()">Save</button>
+                                <button data-ma-action="profile-edit-cancel" class="btn btn-link btn-sm">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pmb-block">
+                    <div class="pmbb-header">
+                        <h2><i class="zmdi zmdi-phone m-r-10"></i> Contact Information</h2>
+                    </div>
+                    <div class="pmbb-body p-l-30">
+                        <div class="pmbb-view">
+                            <dl class="dl-horizontal">
+                                <dt>Mobile Phone</dt>
+                                <dd><% user_info.cell_phone %></dd>
+                            </dl>
+                            <dl class="dl-horizontal">
+                                <dt>Email Address</dt>
+                                <dd><% user_info.email %></dd>
+                            </dl>
+                            <dl class="dl-horizontal">
+                                <dt>Address</dt>
+                                <dd><% user_info.address %></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

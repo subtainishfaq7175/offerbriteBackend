@@ -1,0 +1,9 @@
+<%
+if (!req.session.user_id)
+{
+%>
+<script>
+    redirect();
+</script>
+<% }%>
+<h2>Offerbrite home page.</h2>

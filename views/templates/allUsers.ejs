@@ -1,0 +1,176 @@
+<div class="card">
+
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-small" data-toggle="modal" data-target="#userModal">Add User</button>
+
+
+    <div class="table-responsive">
+        <h2>Bussiness Users</h2>
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>City</th>
+                <th>Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <% for(var i=0; i < data.length; i++) { %>
+            <%if (data[i].userType  == 2) { %>
+                <tr  >
+                    <th><%= i+1 %></th>
+                    <th><%= data[i].username %></th>
+                    <th><%= data[i].email %></th>
+                    <th><%= data[i].phone %></th>
+                    <th><%= data[i].city %></th>
+
+                    <th>
+                        <span data-id="<%= data[i].id %>" data-userType="<%= data[i].userType %>" data-username="<%= data[i].username %>" data-email="<%= data[i].email %>" data-phone="<%= data[i].phone %>" data-city="<%= data[i].city %>" class="btn editClass btn-small btn-primary glyphicon glyphicon-edit" >  </span> ||
+                        <span data-toggle="modal" data-target="#deleteModal" data-id="<%= data[i].id %>" class="btn deleteClass btn-small btn-danger glyphicon glyphicon-remove" >  </span>
+                    </th>
+                </tr>
+                <% } %>
+            <% } %>
+
+            </tbody>
+        </table>
+
+        <br />
+        <br />
+        <br />
+
+
+        <h2>Consumer Users</h2>
+        <br />
+
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>City</th>
+                <th>Action</th>
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <% for(var i=0; i < data.length; i++) { %>
+            <%if (data[i].userType  == 3) { %>
+            <tr  >
+                <th><%= i+1 %></th>
+                <th><%= data[i].username %></th>
+                <th><%= data[i].email %></th>
+                <th><%= data[i].phone %></th>
+                <th><%= data[i].city %></th>
+                <th>
+                    <span data-id="<%= data[i].id %>" data-userType="<%= data[i].userType %>" data-username="<%= data[i].username %>" data-email="<%= data[i].email %>" data-phone="<%= data[i].phone %>" data-city="<%= data[i].city %>" class="btn editClass btn-small btn-primary glyphicon glyphicon-edit" >  </span> ||
+                    <span data-toggle="modal" data-target="#deleteModal" data-id="<%= data[i].id %>" class="btn deleteClass btn-small btn-danger glyphicon glyphicon-remove" >  </span>
+                </th>
+            </tr>
+            <% } %>
+            <% } %>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="userModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post" id="addUpdateUserForm">
+                    <div class="form-group">
+                        <label for="email">User Name:</label>
+                        <input type="text" value="" class="form-control" id="username" name="username" placeholder="Enter User name">
+                        <input type="hidden" value="0" id="id" name="id">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">User Type:</label>
+                        <select class="form-control" name="userType" id="userType">
+                            <option value="-1">Please Select</option>
+                            <option value="2">Bussiness User</option>
+                            <option value="3">Consumer</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" value="" class="form-control" id="email" name="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Phone:</label>
+                        <input type="text" value="" class="form-control" id="phone"  name="phone" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">City:</label>
+                        <input type="text" value="" class="form-control" id="city" name="city" placeholder="Enter email">
+                    </div>
+                    <div class="form-group" id="passwordDiv">
+                        <label for="pwd">Password:</label>
+                        <input type="password" value="" class="form-control" id="password" name="password" placeholder="Enter password">
+                    </div>
+
+
+                    <button type="button" id="addorUpdate" class="btn btn-info">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete User</h4>
+            </div>
+            <div class="modal-body">
+                <label>Are sure you want to delete.</label>
+            </div>
+            <div class="modal-footer">
+            <button type="button" id="" class="btn confirmDelete btn-danger">Delete</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

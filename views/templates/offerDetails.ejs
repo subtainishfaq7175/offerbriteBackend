@@ -1,0 +1,33 @@
+<div class="card">
+
+    <div class="table-responsive">
+
+            <h2><%= data.title %></h2>
+            <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>title</th>
+                <th>Description</th>
+                <th>Additional Info</th>
+                <th>Created At</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                 <td><%= data.title %></td>
+                <td><%= data.description %></td>
+                <td><%= data.additionalInformation %></td>
+
+                <td><%= moment(data.createdAt).format('LLL') %></td>
+            </tr>
+
+            </tbody>
+
+            </table>
+
+
+    </div>
+
+
+</div>
